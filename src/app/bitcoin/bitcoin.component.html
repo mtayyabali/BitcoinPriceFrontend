@@ -1,0 +1,27 @@
+<mat-form-field color="accent" appearance="fill">
+  <mat-label>Inherited calendar color</mat-label>
+  <input matInput [matDatepicker]="picker1" (dateInput)="changeStartDate($event)" (dateChange)="changeStartDate($event)">
+  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+  <mat-datepicker #picker1></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field color="accent" appearance="fill">
+  <mat-label>Custom calendar color</mat-label>
+  <input matInput [matDatepicker]="picker2" (dateInput)="changeEndDate($event)" (dateChange)="changeEndDate($event)">
+  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+  <mat-datepicker #picker2 color="primary"></mat-datepicker>
+</mat-form-field>
+
+<button mat-raised-button (click)="applyFilter()">Render</button>
+<div class="chart-wrapper" style="width: 1024px; height: 700px">
+
+  <canvas baseChart *ngIf="dataFetched"
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [colors]="lineChartColors"
+          [legend]="lineChartLegend"
+          [chartType]="'line'"
+          [plugins]="lineChartPlugins" >
+  </canvas>
+</div>
