@@ -26,7 +26,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
-      {path: 'bpi', component: BitcoinComponent},
+      {path: '', component: BitcoinComponent},
     ]),
     HttpClientModule,
     ChartsModule,
